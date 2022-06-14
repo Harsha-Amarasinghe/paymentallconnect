@@ -5,6 +5,8 @@ import 'package:paymentallconnect/success.dart';
 import 'package:paymentallconnect/MainDrawer.dart';
 import 'package:date_time_picker/date_time_picker.dart';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 class CardDetails extends StatefulWidget {
   const CardDetails({Key? key}) : super(key: key);
 
@@ -13,6 +15,12 @@ class CardDetails extends StatefulWidget {
 }
 
 class _CardDetailsState extends State<CardDetails> {
+  TextEditingController name = new TextEditingController();
+  TextEditingController card_num = new TextEditingController();
+  TextEditingController amount = new TextEditingController();
+  TextEditingController date = new TextEditingController();
+
+
   TextEditingController nameController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   bool status = false;
@@ -62,24 +70,28 @@ class _CardDetailsState extends State<CardDetails> {
               ],
             ),
             TextField(
+              controller: name,
                 decoration: InputDecoration(
               icon: Icon(Icons.person),
               labelText: 'Name on Card',
               //labelStyle: TextStyle(color: Colors.black)),
             )),
             TextField(
+              controller: card_num,
                 decoration: InputDecoration(
               icon: Icon(Icons.format_list_numbered_rtl_outlined),
               labelText: 'Card Number',
               //labelStyle: TextStyle(color: Colors.black)),
             )),
             TextField(
+              controller: amount,
                 decoration: InputDecoration(
               icon: Icon(Icons.money),
               labelText: 'Amount',
               //labelStyle: TextStyle(color: Colors.black)),
             )),
             DateTimePicker(
+              controller: date,
               initialValue: '',
               firstDate: DateTime(2000),
               lastDate: DateTime(2100),
@@ -101,6 +113,8 @@ class _CardDetailsState extends State<CardDetails> {
                   textColor: Colors.white,
                   color: Colors.green,
                   onPressed: () {
+                    Map <String,dynamic> data={"field1":name.text,"field2":card_num.text,"field3":amount.text,"field4":date.selection}
+                    firestore.instance.collection("test").add(data);
                     Navigator.push(
                       context,
                       MaterialPageRoute(builder: (context) => SucessPayment()),
