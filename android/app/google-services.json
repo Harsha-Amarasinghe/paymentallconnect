@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "777344994436",
+    "project_id": "flutter-test1-7e2e3",
+    "storage_bucket": "flutter-test1-7e2e3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:777344994436:android:d8314d38afcf6b8d0a86d1",
+        "android_client_info": {
+          "package_name": "com.harsha.paymentallconnect"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "777344994436-i38attus8thd8gjlhjhl579k29qfuib2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAULSZnklubeper1JpNxVozzlKk8X-qAqk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "777344994436-i38attus8thd8gjlhjhl579k29qfuib2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
